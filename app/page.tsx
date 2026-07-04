@@ -85,7 +85,7 @@ export default function HomePage() {
             &quot;Named poorly. <span className="acc">Built</span>{" "}
             properly.&quot;
           </blockquote>
-          <figcaption>— The maker, Poorly Made Goods · Est. 2016</figcaption>
+          <figcaption>— Marcos, Poorly Made Goods · Est. 2016</figcaption>
         </figure>
 
         <div className={`${styles.ctaRow} rv`}>
