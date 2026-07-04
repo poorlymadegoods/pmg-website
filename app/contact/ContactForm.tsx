@@ -19,6 +19,7 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
+  const [copyHref, setCopyHref] = useState<string | null>(null);
 
   /* pre-fill Reason + Message when arriving from Custom Order or a link.
      Read from window.location instead of useSearchParams so the form still
@@ -59,25 +60,26 @@ export default function ContactForm() {
     const why = String(data.get("reason") ?? "");
     const msg = String(data.get("message") ?? "").trim();
     const subject = `Poorly Made Goods — ${why || "Contact"} — ${name}`;
+    const record =
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      (phone ? `Phone: ${phone}\n` : "") +
+      `Reason: ${why}\n\n` +
+      msg;
 
     if (!FORMSPREE_FORM_ID) {
       // No form service configured yet — fall back to the visitor's email
       // client with everything pre-filled (see lib/config.ts to upgrade).
-      const body =
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        (phone ? `Phone: ${phone}\n` : "") +
-        `Reason: ${why}\n\n` +
-        msg;
       setStatus("Opening your email client…");
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
         subject
-      )}&body=${encodeURIComponent(body)}`;
+      )}&body=${encodeURIComponent(record)}`;
       return;
     }
 
     setSending(true);
     setStatus("Sending…");
+    setCopyHref(null);
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: "POST",
@@ -90,11 +92,24 @@ export default function ContactForm() {
           fd.set("reason", why);
           fd.set("message", msg);
           fd.set("_subject", subject);
+          // CC the customer a copy — honored on paid Formspree plans,
+          // silently ignored on the free plan (see the on-screen
+          // "Email yourself a copy" fallback below).
+          fd.set("_cc", email);
           return fd;
         })(),
       });
       if (res.ok) {
         setStatus("Sent — thanks! We'll get back to you soon.");
+        // Give the customer a record of what they sent: a pre-filled
+        // email to their own address with the full submission.
+        setCopyHref(
+          `mailto:${email}?subject=${encodeURIComponent(
+            `Your copy — ${subject}`
+          )}&body=${encodeURIComponent(
+            `Copy of your request to Poorly Made Goods (${CONTACT_EMAIL}):\n\n${record}`
+          )}`
+        );
         form.reset();
         setReason("");
         setMessage("");
@@ -208,6 +223,13 @@ export default function ContactForm() {
               {status}
             </span>
           </div>
+          {copyHref && (
+            <div className={styles.submitRow}>
+              <a className="btn" href={copyHref}>
+                Email yourself a copy →
+              </a>
+            </div>
+          )}
           <p className="form-note">
             {FORMSPREE_FORM_ID ? (
               <>
