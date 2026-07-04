@@ -1,0 +1,214 @@
+.opener {
+  position: relative;
+  min-height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--gutter) clamp(48px, 8vh, 88px);
+  background: var(--hero-gradient);
+}
+.opener h1 {
+  font-size: clamp(40px, 6vw, 84px);
+  max-width: 14ch;
+}
+.opener .lede {
+  margin: 22px 0 0;
+  max-width: 44ch;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.62;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* chapters (scroll-zoom) */
+.chapters {
+  position: relative;
+  z-index: 10;
+}
+.chapter {
+  position: relative;
+  height: 320vh;
+}
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: hidden;
+}
+.idx {
+  position: absolute;
+  top: 50%;
+  right: -3vw;
+  transform: translateY(-50%);
+  font-family: var(--stencil);
+  font-weight: 800;
+  font-size: 34vw;
+  line-height: 1;
+  color: var(--watermark);
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+.chapter.alt .idx {
+  right: auto;
+  left: -3vw;
+}
+.chCard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(44vw, 560px);
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+.c1 .card {
+  aspect-ratio: 7/5;
+}
+.c2 .card {
+  aspect-ratio: 8/5;
+}
+.c3 .card {
+  aspect-ratio: 3/4;
+}
+.c3 .chCard {
+  width: min(33vw, 420px);
+}
+.card {
+  position: relative;
+  border-radius: 8px;
+  background: var(--paper-2);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.info {
+  position: absolute;
+  left: var(--gutter);
+  bottom: clamp(40px, 9vh, 96px);
+  max-width: 380px;
+}
+.chapter.alt .info {
+  left: auto;
+  right: var(--gutter);
+  text-align: right;
+}
+.no {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.name {
+  font-family: var(--stencil);
+  font-weight: 700;
+  font-size: clamp(38px, 4.8vw, 76px);
+  line-height: 0.95;
+  margin: 12px 0 6px;
+}
+.price {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+}
+.chLede {
+  margin: 16px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 38ch;
+  text-wrap: pretty;
+}
+.chapter.alt .chLede {
+  margin-left: auto;
+}
+.cta {
+  margin-top: 22px;
+}
+
+.specs {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(40px, 9vh, 96px);
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.chapter.alt .specs {
+  right: auto;
+  left: var(--gutter);
+}
+.specs :global(.row) {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 11px 0;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.specs :global(.row .k) {
+  color: var(--ink-faint);
+}
+.specs :global(.row .v) {
+  color: var(--ink);
+}
+
+.info,
+.specs {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.16, 0.84, 0.3, 1);
+}
+.pin.in .info {
+  opacity: 1;
+  transform: none;
+}
+.pin.in .specs {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.14s;
+}
+
+.closing {
+  position: relative;
+  min-height: 70dvh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 12vh 6vw 8vh;
+}
+.closing :global(.eyebrow) {
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.closingLine {
+  font-size: clamp(36px, 5.6vw, 84px);
+}
+.closingCta {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+@media (max-width: 760px) {
+  .chCard {
+    width: 74vw;
+  }
+  .c3 .chCard {
+    width: 58vw;
+  }
+  .idx {
+    font-size: 58vw;
+  }
+  .info {
+    max-width: 72vw;
+  }
+  .specs {
+    display: none;
+  }
+}

@@ -1,0 +1,320 @@
+.opener {
+  position: relative;
+  min-height: 42dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--gutter) clamp(40px, 7vh, 72px);
+  background: var(--hero-gradient);
+}
+.opener h1 {
+  font-size: clamp(38px, 5.6vw, 76px);
+  max-width: 16ch;
+}
+.opener .lede {
+  margin: 20px 0 0;
+  max-width: 46ch;
+  font-size: clamp(14px, 1.1vw, 16.5px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.builder {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(30px, 5vh, 60px) var(--gutter) clamp(90px, 14vh, 150px);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+}
+.builder :global(.panel + .panel) {
+  margin-top: 24px;
+}
+.panelTitle {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 26px;
+}
+.panelTitle .opt {
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+.gridFields {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.fieldHint {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  line-height: 1.6;
+  margin-top: 2px;
+}
+
+/* ── card-style option pickers (product / tannery) ── */
+.optGrid {
+  display: grid;
+  gap: 2px;
+}
+.cols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.cols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.optCard {
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  background: var(--paper-edge);
+  border: 1.5px solid transparent;
+  padding: 18px 16px;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.optCard:hover {
+  border-color: var(--hairline);
+  background: color-mix(in oklab, var(--paper-2) 80%, white 3%);
+}
+.optCard.selected {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--paper-2) 80%, white 3%);
+}
+.optCard.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+.optName {
+  font-family: var(--stencil);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 6px;
+}
+.optDetail {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  line-height: 1.55;
+  display: block;
+}
+.optPrice {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  display: block;
+}
+.optTag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cognac);
+  border: 1px solid color-mix(in oklab, var(--cognac) 55%, transparent);
+  padding: 2px 8px;
+  margin-top: 8px;
+}
+
+/* ── color chip grid ── */
+.chipGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 8px;
+}
+.chip {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  background: var(--paper-edge);
+  border: 1.5px solid transparent;
+  padding: 12px 8px;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease;
+}
+.chip:hover {
+  border-color: var(--hairline);
+}
+.chip.selected {
+  border-color: var(--accent);
+}
+.chip.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--accent);
+}
+.chipDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  border: 1px solid var(--hairline);
+}
+.chipName {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.chipLimited {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cognac);
+  margin-top: 3px;
+}
+
+.subnote {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+
+/* ── deposit notice ── */
+.deposit {
+  border: 1px solid color-mix(in oklab, var(--cognac) 45%, transparent);
+  background: color-mix(in oklab, var(--cognac) 8%, transparent);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-top: 6px;
+}
+.depositTitle {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cognac);
+  margin-bottom: 8px;
+}
+.deposit p {
+  font-family: var(--grotesk);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.deposit strong {
+  color: var(--ink);
+}
+
+/* live summary */
+.summary {
+  position: sticky;
+  top: 110px;
+}
+.sumHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.sumName {
+  font-family: var(--stencil);
+  font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1;
+}
+.sumPrice {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.sumRef {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+.sumRows {
+  display: flex;
+  flex-direction: column;
+}
+.sumRows .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 11px 0;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sumRows .row .k {
+  color: var(--ink-faint);
+}
+.sumRows .row .v {
+  color: var(--ink);
+  text-align: right;
+}
+.sumRows .total {
+  border-top: 1px solid var(--ink-faint);
+  margin-top: 6px;
+  padding-top: 16px;
+}
+.sumRows .total .k,
+.sumRows .total .v {
+  color: var(--ink);
+  font-size: 13px;
+}
+.sumCta {
+  margin-top: 26px;
+  display: flex;
+}
+.sumCta :global(.btn) {
+  width: 100%;
+}
+.sumNote {
+  margin-top: 16px;
+}
+
+@media (max-width: 960px) {
+  .builder {
+    grid-template-columns: 1fr;
+  }
+  .summary {
+    position: static;
+  }
+}
+@media (max-width: 560px) {
+  .cols3 {
+    grid-template-columns: 1fr;
+  }
+  .cols2 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,84 @@
+.opener {
+  position: relative;
+  min-height: 40dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--gutter) clamp(36px, 6vh, 64px);
+  background: var(--hero-gradient);
+}
+.opener h1 {
+  font-size: clamp(38px, 5.6vw, 76px);
+  max-width: 14ch;
+}
+.opener .lede {
+  margin: 20px 0 0;
+  max-width: 46ch;
+  font-size: clamp(14px, 1.1vw, 16.5px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vh, 50px) var(--gutter) clamp(100px, 16vh, 170px);
+}
+.gridFields {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.submitRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.status {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  min-height: 1em;
+}
+/* honeypot — hidden from real people, visible to bots */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.direct {
+  margin-top: 34px;
+  display: flex;
+  gap: clamp(24px, 5vw, 64px);
+  flex-wrap: wrap;
+}
+.item {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.item .k {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+.item a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+}
+.item a:hover {
+  border-color: var(--accent);
+}
