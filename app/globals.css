@@ -81,6 +81,15 @@ img {
   80% { transform: translate(9%, 7%); }
   100% { transform: translate(0, 0); }
 }
+/* On touch devices the jitter reads as screen shimmer rather than film
+   grain (small viewport + OLED soft-light contrast) — keep the static
+   texture, drop the movement. */
+@media (hover: none) {
+  .grain {
+    animation: none;
+    inset: 0;
+  }
+}
 
 /* ═══════════════ NAV — fixed, shared across every page ═══════════════ */
 .nav {
