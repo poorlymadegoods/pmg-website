@@ -1,11 +1,12 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useState, type ReactNode } from "react";
 
 /**
- * A photo position. Final photography is pending — until a `src` is
- * provided, this renders the hatched placeholder from the design.
- *
- * To drop in a real photo: put the file in /public/photos and pass
- * src="/photos/your-file.jpg" (plus alt text) where this is used.
+ * A photo position. Each slot is pre-wired to a filename under
+ * /public/photos — when that file exists it renders; until then (or if
+ * the file 404s) the design's hatched placeholder shows instead. To add
+ * a photo, just upload it to public/photos with the expected name.
  */
 export default function PhotoSlot({
   src,
@@ -18,9 +19,18 @@ export default function PhotoSlot({
   icon: ReactNode;
   label: ReactNode;
 }) {
-  if (src) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img className="slot-img" src={src} alt={alt} />;
+  const [failed, setFailed] = useState(false);
+
+  if (src && !failed) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        className="slot-img"
+        src={src}
+        alt={alt}
+        onError={() => setFailed(true)}
+      />
+    );
   }
   return (
     <div className="slot-ph">

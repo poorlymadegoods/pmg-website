@@ -29,6 +29,8 @@ export default function HomePage() {
           >
             <div className={styles.card}>
               <PhotoSlot
+                src="/photos/home-bench.jpg"
+                alt="The workbench at the Poorly Made Goods home workshop in Chicago"
                 icon={<path d="M3 17h18M6 17V9l6-4 6 4v8" />}
                 label={
                   <>
@@ -61,6 +63,8 @@ export default function HomePage() {
           >
             <div className={styles.card}>
               <PhotoSlot
+                src="/photos/home-hides.jpg"
+                alt="Full-grain Italian and French leather hides"
                 icon={
                   <>
                     <path d="M4 6c3-2 13-2 16 0v12c-3 2-13 2-16 0z" />

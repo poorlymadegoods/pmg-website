@@ -15,6 +15,8 @@ type Chapter = {
   lede: string;
   ctaHref: string;
   specs: [string, string][];
+  photoSrc: string;
+  photoAlt: string;
   photoIcon: React.ReactNode;
   photoLabel: React.ReactNode;
 };
@@ -34,6 +36,8 @@ const CHAPTERS: Chapter[] = [
       ["Edges", "Hand-burnished"],
       ["Made", "One at a time"],
     ],
+    photoSrc: "/photos/goods-vfold.jpg",
+    photoAlt: "V-Fold wallet in full-grain veg tan leather",
     photoIcon: (
       <>
         <rect x="3" y="6" width="18" height="12" rx="1.5" />
@@ -63,6 +67,8 @@ const CHAPTERS: Chapter[] = [
       ["Build", "One-piece fold"],
       ["Made", "One at a time"],
     ],
+    photoSrc: "/photos/goods-stash.jpg",
+    photoAlt: "Stash wallet, a single-fold card holder in full-grain leather",
     photoIcon: (
       <>
         <rect x="3" y="7" width="18" height="10" rx="1.5" />
@@ -91,6 +97,8 @@ const CHAPTERS: Chapter[] = [
       ["Edges", "Hand-burnished"],
       ["Made", "One at a time"],
     ],
+    photoSrc: "/photos/goods-notebook.jpg",
+    photoAlt: "Leather cover fitted on an A5 notebook",
     photoIcon: (
       <>
         <rect x="5" y="3" width="14" height="18" rx="1.5" />
@@ -205,7 +213,12 @@ export default function GoodsChapters() {
             </div>
             <div className={styles.chCard}>
               <div className={styles.card}>
-                <PhotoSlot icon={c.photoIcon} label={c.photoLabel} />
+                <PhotoSlot
+                  src={c.photoSrc}
+                  alt={c.photoAlt}
+                  icon={c.photoIcon}
+                  label={c.photoLabel}
+                />
               </div>
             </div>
             <div className={styles.info}>
