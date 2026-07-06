@@ -1,15 +1,14 @@
 import type { NextConfig } from "next";
 
 /**
- * Static export for GitHub Pages at the project path
- * poorlymadegoods.github.io/pmg-website. If the site moves to a custom
- * domain (or any root domain), REMOVE the basePath line — root domains
- * serve from / and basePath would break every asset URL.
+ * Static export for GitHub Pages at the custom domain poorlymadegoods.com
+ * (see public/CNAME). Root domains serve from /, so no basePath. If the
+ * site ever falls back to the project path poorlymadegoods.github.io/pmg-website,
+ * re-add `basePath: "/pmg-website"` or every asset URL 404s.
  */
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath: "/pmg-website",
   images: { unoptimized: true },
 };
 
