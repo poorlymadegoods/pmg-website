@@ -30,7 +30,7 @@ export default function HomePage() {
             <div className={styles.card}>
               <PhotoSlot
                 src="/photos/home-bench.jpg"
-                alt="The workbench at the Poorly Made Goods home workshop in Chicago"
+                alt="Where the magic happens at the Poorly Made Goods home workshop in Chicago"
                 icon={<path d="M3 17h18M6 17V9l6-4 6 4v8" />}
                 label={
                   <>
