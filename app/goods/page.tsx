@@ -8,7 +8,7 @@ import styles from "./goods.module.css";
 export const metadata: Metadata = {
   title: "Goods",
   description:
-    "Three goods, made one at a time: the V-Fold and Stash wallets and the A5 Notebook Cover. Full-grain veg tan, saddle-stitched in Chicago.",
+    "Three pieces, made one at a time: the V-Fold and Stash wallets and the A5 Notebook Cover. Full-grain veg tan, saddle-stitched in Chicago.",
 };
 
 export default function GoodsPage() {
@@ -24,7 +24,9 @@ export default function GoodsPage() {
           className="h-display rv in"
           style={{ "--d": ".1s" } as React.CSSProperties}
         >
-          Three goods.
+          Three pieces.
+          <br />
+          Made
           <br />
           One at a time.
         </h1>
