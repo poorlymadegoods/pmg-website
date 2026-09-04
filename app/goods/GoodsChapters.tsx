@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Magnetic from "@/components/Magnetic";
 import PhotoSlot from "@/components/PhotoSlot";
 import styles from "./goods.module.css";
 
@@ -212,14 +213,16 @@ export default function GoodsChapters() {
               {c.idx}
             </div>
             <div className={styles.chCard}>
-              <div className={styles.card}>
-                <PhotoSlot
-                  src={c.photoSrc}
-                  alt={c.photoAlt}
-                  icon={c.photoIcon}
-                  label={c.photoLabel}
-                />
-              </div>
+              <Magnetic strength={10}>
+                <div className={styles.card}>
+                  <PhotoSlot
+                    src={c.photoSrc}
+                    alt={c.photoAlt}
+                    icon={c.photoIcon}
+                    label={c.photoLabel}
+                  />
+                </div>
+              </Magnetic>
             </div>
             <div className={styles.info}>
               <div className={styles.no}>{c.no}</div>
@@ -227,9 +230,11 @@ export default function GoodsChapters() {
               <div className={styles.price}>{c.price}</div>
               <p className={styles.chLede}>{c.lede}</p>
               <div className={styles.cta}>
-                <Link className="btn" href={c.ctaHref}>
-                  Customize this →
-                </Link>
+                <Magnetic strength={12}>
+                  <Link className="btn" href={c.ctaHref}>
+                    Customize this →
+                  </Link>
+                </Magnetic>
               </div>
             </div>
             <div className={styles.specs}>

@@ -1,0 +1,57 @@
+.process {
+  position: relative;
+  z-index: 2;
+}
+.step {
+  position: relative;
+  height: 180vh;
+}
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.numeral {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--stencil);
+  font-weight: 800;
+  font-size: 44vw;
+  line-height: 1;
+  color: var(--watermark);
+  pointer-events: none;
+  user-select: none;
+}
+.body {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  text-align: center;
+  padding: 0 var(--gutter);
+  opacity: 0;
+}
+.stepTitle {
+  font-family: var(--stencil);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 68px);
+  margin: 0 0 18px;
+}
+.stepCopy {
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .numeral {
+    font-size: 70vw;
+  }
+}

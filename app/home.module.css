@@ -96,12 +96,19 @@
   order: 2;
 }
 .kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 18px;
+}
+.kickerStamp {
+  width: 16px;
+  height: 16px;
 }
 .title {
   font-family: var(--stencil);
@@ -158,6 +165,11 @@
   padding: clamp(60px, 12vh, 130px) clamp(20px, 6vw, 52px);
   text-align: center;
   margin: 0;
+}
+.pullStamp {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 18px;
 }
 .pull blockquote {
   margin: 0 auto;
