@@ -21,6 +21,9 @@ export default function StitchLine({ children }: { children: ReactNode }) {
     if (!wrap || !svg || !path) return;
 
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Mirrors the `@media (max-width: 820px)` rule that hides .stitch-svg —
+    // skip the scroll/resize work entirely when the line isn't even shown.
+    if (matchMedia("(max-width: 820px)").matches) return;
     const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
     let length = 0;
     let ticking = false;
