@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import TransitionLink from "@/components/TransitionLink";
 
 const LINKS = [
   { href: "/goods", label: "Goods" },
@@ -13,19 +13,19 @@ export default function Nav({ className }: { className?: string }) {
   const pathname = usePathname();
   return (
     <nav className={className ? `nav ${className}` : "nav"}>
-      <TransitionLink className="brand" href="/">
+      <Link className="brand" href="/">
         <span className="mark">PMG</span>
         <span className="full">Poorly Made Goods</span>
-      </TransitionLink>
+      </Link>
       <div className="nav-links">
         {LINKS.map((l) => (
-          <TransitionLink
+          <Link
             key={l.href}
             href={l.href}
             className={pathname?.startsWith(l.href) ? "here" : undefined}
           >
             {l.label}
-          </TransitionLink>
+          </Link>
         ))}
       </div>
     </nav>

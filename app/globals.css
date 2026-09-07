@@ -465,20 +465,6 @@ img {
   }
 }
 
-/* ═══════════════ VIEW TRANSITIONS (demo) ═══════════════ */
-@media (prefers-reduced-motion: no-preference) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.5s;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*) {
-    animation: none !important;
-  }
-}
-
 /* ═══════════════ STAMP REVEAL (demo) ═══════════════ */
 .stamp-mark {
   width: 34px;
