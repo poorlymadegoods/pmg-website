@@ -67,7 +67,7 @@ export default function HomePage() {
             <p className={styles.blockCopy}>
               There&apos;s no factory floor and no production line.{" "}
               <strong>I make everything myself, at home, in Chicago</strong>,
-              with high-quality <strong>Italian and French hides</strong>.
+              with high-quality <strong>hides</strong>.
               Orders go out when they&apos;re finished — and they&apos;re
               finished when they&apos;re right.
             </p>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 />
               </div>
             </Magnetic>
-            <div className={styles.stamp}>Full-grain · Italian &amp; French</div>
+            <div className={styles.stamp}>Full-grain · Beautiful and rich texture</div>
           </div>
         </section>
 

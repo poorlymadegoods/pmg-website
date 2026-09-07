@@ -7,12 +7,12 @@ const STEPS = [
   {
     no: "01",
     title: "The Hide",
-    copy: "Full-grain veg tan, sourced from Italian and French tanneries. Every hide is inspected by hand before it's cut.",
+    copy: "Full-grain veg tan, sourced from the finest tanneries across Italy, France and, of course, Chicago. Every hide is inspected by hand before it's cut.",
   },
   {
     no: "02",
     title: "The Cut",
-    copy: "Patterns are laid by hand and cut with a knife, not a die. No two panels are ever perfectly identical.",
+    copy: "Patterns are created, tested and refined over months of full use testing. No two panels are ever perfectly identical.",
   },
   {
     no: "03",
