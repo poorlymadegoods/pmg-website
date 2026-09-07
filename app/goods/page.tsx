@@ -34,9 +34,8 @@ export default function GoodsPage() {
           className={`${styles.lede} rv in`}
           style={{ "--d": ".22s" } as React.CSSProperties}
         >
-          Everything below is cut, stitched, and stamped to order. Photos are
-          on their way — for now, scroll through the specs and pricing, or
-          start a custom build.
+          Everything below is cut, stitched, and stamped to order. Scroll
+          through the specs and pricing, or start a custom build.
         </p>
       </header>
 

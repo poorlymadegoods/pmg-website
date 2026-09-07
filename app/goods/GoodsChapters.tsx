@@ -29,7 +29,7 @@ const CHAPTERS: Chapter[] = [
     no: "No.01 — Wallet",
     name: "V-Fold",
     price: "From $130",
-    lede: "Eight cards, two sleeves, one piece of full-grain veg tan. Folded once, built to be sat on for a decade.",
+    lede: "Eight cards, two sleeves, four card pockets of full-grain veg tan. Folded once, built to be sat on for a decade.",
     ctaHref: "/custom-order?product=V-Fold",
     specs: [
       ["Leather", "Full-grain veg tan"],
